@@ -58,8 +58,7 @@
                     <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
                     <li><a href="#connecting-device">Connecting the device</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
-                    <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
-                    <li><a href="#flashing-factory-images">Flashing factory images</a></li>
+                    <li><a href="#installing-factory-images">Obtaining factory images</a></li>
                     <li><a href="#locking-the-bootloader">Locking the bootloader</a></li>
                     <li>
                         <a href="#post-installation">Post-installation</a>
@@ -278,8 +277,12 @@
                 <p><strong id="unlock-bootloader-status"></strong></p>
             </section>
 
-            <section id="obtaining-factory-images">
-                <h2><a href="#obtaining-factory-images">Obtaining factory images</a></h2>
+            <section id="installing-factory-images">
+                <h2><a href="#installing-factory-images">Installing factory images</a></h2>
+
+                <p>The initial install will be performed by flashing the factory images. This will
+                obtain the GrapheneOS factory images, then replace the existing OS installation and 
+                wipe all the existing data.</p>
 
                 <p>You need to obtain the GrapheneOS factory images for your device to proceed with
                 the installation process.</p>
@@ -289,22 +292,7 @@
                 <p><strong id="quota-warning-text" class="warning-text" hidden="hidden">Warning: browser
                 is reporting a low storage quota, there might not be enough space for the image</strong></p>
 
-                <button id="download-release-button" disabled="">Download release</button>
-
-                <p id="download-release-status-container" hidden="hidden">
-                    <strong id="download-release-status"></strong>
-                    <br/>
-                    <progress id="download-release-progress" hidden="hidden" max="1" value="0"></progress>
-                </p>
-            </section>
-
-            <section id="flashing-factory-images">
-                <h2><a href="#flashing-factory-images">Flashing factory images</a></h2>
-
-                <p>The initial install will be performed by flashing the factory images. This will
-                replace the existing OS installation and wipe all the existing data.</p>
-
-                <button id="flash-release-button" disabled="">Flash release</button>
+                <button id="install-release-button" disabled="">Install release</button>
 
 
                 <p>Wait for the flashing process to complete. It will automatically handle
@@ -312,6 +300,12 @@
                 Avoid interacting with the device until the flashing script is finished. Then,
                 proceed to <a href="#locking-the-bootloader">locking the bootloader</a> before using
                 the device as locking wipes the data again.</p>
+                
+                <p id="download-release-status-container" hidden="hidden">
+                    <strong id="download-release-status"></strong>
+                    <br/>
+                    <progress id="download-release-progress" hidden="hidden" max="1" value="0"></progress>
+                </p>
 
                 <p id="flash-release-status-container" hidden="hidden">
                     <strong id="flash-release-status"></strong>

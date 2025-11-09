@@ -9,8 +9,7 @@ const CACHE_DB_VERSION = 1;
 
 const Buttons = {
     UNLOCK_BOOTLOADER: "unlock-bootloader",
-    DOWNLOAD_RELEASE: "download-release",
-    FLASH_RELEASE: "flash-release",
+    INSTALL_RELEASE: "install-release",
     LOCK_BOOTLOADER: "lock-bootloader",
     REMOVE_CUSTOM_KEY: "remove-custom-key"
 };
@@ -283,41 +282,6 @@ async function downloadRelease(setProgress) {
         await releaseWakeLock();
     }
     setProgress(`Downloaded ${latestZip} release.`, 1.0);
-}
-
-async function reconnectCallback() {
-    let statusField = document.getElementById("flash-release-status");
-    statusField.textContent =
-        "To continue flashing, reconnect the device by tapping here:";
-
-    let reconnectButton = document.getElementById("flash-reconnect-button");
-    let progressBar = document.getElementById("flash-release-progress");
-
-    // Hide progress bar while waiting for reconnection
-    progressBar.hidden = true;
-    reconnectButton.hidden = false;
-
-    reconnectButton.onclick = async () => {
-        await device.connect();
-        reconnectButton.hidden = true;
-        progressBar.hidden = false;
-    };
-}
-
-async function flashRelease(setProgress) {
-    await requestWakeLock();
-    await ensureConnected(setProgress);
-
-    // Need to do this again because the user may not have clicked download if
-    // it was cached
-    setProgress("Finding latest release...");
-    let [latestZip, product] = await getLatestRelease();
-    await blobStore.init();
-    let blob = await blobStore.loadFile(latestZip);
-    if (blob === null) {
-        throw new Error("You need to download a release first!");
-    }
-
     setProgress("Cancelling any pending OTAs...");
     // Cancel snapshot update if in progress on devices which support it on all bootloader versions
     if (day1SnapshotCancelDevices.includes(product)) {
@@ -354,8 +318,26 @@ async function flashRelease(setProgress) {
         setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: false });
         await releaseWakeLock();
     }
-
     return `Flashed ${latestZip} to device.`;
+}
+
+async function reconnectCallback() {
+    let statusField = document.getElementById("flash-release-status");
+    statusField.textContent =
+        "To continue flashing, reconnect the device by tapping here:";
+
+    let reconnectButton = document.getElementById("flash-reconnect-button");
+    let progressBar = document.getElementById("flash-release-progress");
+
+    // Hide progress bar while waiting for reconnection
+    progressBar.hidden = true;
+    reconnectButton.hidden = false;
+
+    reconnectButton.onclick = async () => {
+        await device.connect();
+        reconnectButton.hidden = true;
+        progressBar.hidden = false;
+    };
 }
 
 async function eraseNonStockKey(setProgress) {
@@ -487,8 +469,7 @@ fastboot.configureZip({
 
 if ("usb" in navigator) {
     addButtonHook(Buttons.UNLOCK_BOOTLOADER, unlockBootloader);
-    addButtonHook(Buttons.DOWNLOAD_RELEASE, downloadRelease);
-    addButtonHook(Buttons.FLASH_RELEASE, flashRelease);
+    addButtonHook(Buttons.INSTALL_RELEASE, installRelease);
     addButtonHook(Buttons.LOCK_BOOTLOADER, lockBootloader);
     addButtonHook(Buttons.REMOVE_CUSTOM_KEY, eraseNonStockKey);
 

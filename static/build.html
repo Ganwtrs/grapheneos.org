@@ -56,8 +56,9 @@
                                 </ul>
                             </li>
                             <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
-                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
                             <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
+                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
+                            <li><a href="#selecting-build-target">Selecting build target</a></li>
                             <li><a href="#reproducible-builds">Reproducible builds</a></li>
                             <li><a href="#building">Building</a></li>
                             <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
@@ -201,10 +202,8 @@
 
                         <p>Your <code>PATH</code> may not contain directories like
                         <code>/sbin</code>, and many system administration commands will fail. The
-                        <code>adevtool</code> from GrapheneOS requires the <code>debugfs</code>
-                        binary in <code>/sbin</code>. The simplest workaround is to add these
-                        directories to your <code>PATH</code> environment variable (and apply the
-                        change to your current shell):</p>
+                        simplest workaround is to add these directories to your <code>PATH</code>
+                        environment variable (and apply the change to your current shell):</p>
 
                         <pre>echo 'export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin' >> ~/.bashrc
 source ~/.bashrc</pre>
@@ -266,9 +265,8 @@ source ~/.bashrc</pre>
                     <p>Additional dependencies for extracting vendor files with adevtool:</p>
 
                     <ul>
-                        <li>Node.js 22 LTS</li>
+                        <li>Node.js 24 LTS</li>
                         <li>yarn</li>
-                        <li>e2fsprogs (for the debugfs command used for extracting data from ext4 images)</li>
                     </ul>
 
                     <p>Additional Vanadium (Chromium) build dependencies not provided by the source tree:</p>
@@ -368,6 +366,17 @@ cd ../..</pre>
                     GrapheneOS only provides a stable history via tags.</p>
                 </section>
 
+                <section id="setting-up-the-os-build-environment">
+                    <h3><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></h3>
+
+                    <p>The build has to be done from bash or zsh as envsetup.sh is not compatible with other
+                    shells.</p>
+
+                    <p>Set up the build environment:</p>
+
+                    <pre>source build/envsetup.sh</pre>
+                </section>
+
                 <section id="extracting-vendor-files-for-pixel-devices">
                     <h3><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></h3>
 
@@ -382,14 +391,11 @@ cd ../..</pre>
                     that the official builds match the sources, since it has signature verification (which
                     is an important part of the verified boot and attestation security model).</p>
 
-                    <p>The below commands need to only be run once to initially create a working
+                    <p>The below command needs to only be run once to initially create a working
                     environment. (Note: On Debian, <code>yarn</code> is reserved for a binary in
                     <code>cmdtest</code>; use <code>yarnpkg</code> instead.)</p>
 
-                    <pre>yarn install --cwd vendor/adevtool/
-source build/envsetup.sh
-lunch sdk_phone64_x86_64-cur-user
-m arsclib</pre>
+                    <pre>yarn --cwd vendor/adevtool/ install</pre>
 
                     <p>Download, extract and prepare the vendor files:</p>
 
@@ -398,15 +404,8 @@ m arsclib</pre>
                     <p>Replace <code><var>PIXEL_CODENAME</var></code> with Pixel device codename, which is the same as <a href="#build-targets">build target name</a>.</p>
                 </section>
 
-                <section id="setting-up-the-os-build-environment">
-                    <h3><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></h3>
-
-                    <p>The build has to be done from bash or zsh as envsetup.sh is not compatible with other
-                    shells.</p>
-
-                    <p>Set up the build environment:</p>
-
-                    <pre>source build/envsetup.sh</pre>
+                <section id="selecting-build-target">
+                    <h3><a href="#selecting-build-target">Selecting build target</a></h3>
 
                     <p>Select the desired build target (<code>husky</code> is the Pixel 8 Pro):</p>
 
@@ -532,19 +531,20 @@ m arsclib</pre>
                     <p>The encryption passphrase for all the keys generated for a device needs to
                     match for compatibility with the GrapheneOS scripts.</p>
 
-                    <p>To generate keys for raven (you should use unique keys per device
+                    <p>To generate keys for tegu (you should use unique keys per device
                     variant):</p>
 
-                    <pre>mkdir -p keys/raven
-cd keys/raven
+                    <pre>mkdir -p keys/tegu
+cd keys/tegu
 CN=GrapheneOS
 ../../development/tools/make_key releasekey "/CN=$CN/"
 ../../development/tools/make_key platform "/CN=$CN/"
 ../../development/tools/make_key shared "/CN=$CN/"
 ../../development/tools/make_key media "/CN=$CN/"
 ../../development/tools/make_key networkstack "/CN=$CN/"
-../../development/tools/make_key sdk_sandbox "/CN=$CN/"
 ../../development/tools/make_key bluetooth "/CN=$CN/"
+../../development/tools/make_key sdk_sandbox "/CN=$CN/"
+../../development/tools/make_key gmscompat_lib "/CN=$CN/"
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
@@ -554,7 +554,7 @@ cd ../..</pre>
 
                     <p>Generate an OpenSSH key for signing factory images:</p>
 
-                    <pre>ssh-keygen -t ed25519 -f keys/raven/id_ed25519</pre>
+                    <pre>ssh-keygen -t ed25519 -f keys/tegu/id_ed25519</pre>
 
                     <p>The passphrase for the SSH key should also match the other keys, although we
                     don't currently handle it automatically in the encrypt/decrypt scripts.</p>
@@ -565,7 +565,7 @@ cd ../..</pre>
                         <p>You can (re-)encrypt your signing keys using the <code>encrypt-keys</code> script,
                         which will prompt for the old passphrase (if any) and new passphrase:</p>
 
-                        <pre>script/encrypt-keys keys/raven</pre>
+                        <pre>script/encrypt-keys keys/tegu</pre>
 
                         <p>The <code>script/decrypt-keys</code> script can be used to remove encryption,
                         which is not recommended. The script exists primarily for internal usage to decrypt
@@ -601,10 +601,10 @@ cd ../..</pre>
 
                     <p>Generate a signed release build with the generate-release.sh script:</p>
 
-                    <pre>script/generate-release.sh raven <var>BUILD_NUMBER</var></pre>
+                    <pre>script/generate-release.sh tegu <var>BUILD_NUMBER</var></pre>
 
                     <p>The factory images and update package will be in
-                    <code>releases/<var>BUILD_NUMBER</var>/release-raven-<var>BUILD_NUMBER</var></code>.
+                    <code>releases/<var>BUILD_NUMBER</var>/release-tegu-<var>BUILD_NUMBER</var></code>.
                     The update zip performs a full OS installation so it can be used to update from
                     any previous version. More efficient incremental updates are used for official
                     over-the-air GrapheneOS updates and can be generated by keeping around past
@@ -648,16 +648,16 @@ cd ../..</pre>
                         delta updates by passing the device, source version build number and target version
                         build number. For example:</p>
 
-                        <pre>script/generate-delta.sh raven 2021102503 2021102613</pre>
+                        <pre>script/generate-delta.sh tegu 2025110600 2025110800</pre>
 
                         <p>The script assumes that the releases are organized in the following directory
                         structure:</p>
 
                         <pre>releases
-├── 2022050700
-│   └── release-raven-2022050700
-└── 2022050800
-    └── release-raven-2022050800</pre>
+├── 2025110600
+│   └── release-tegu-2025110600
+└── 2025110800
+    └── release-tegu-2025110800</pre>
 
                         <p>Incremental updates are uploaded alongside the update packages and update metadata
                         on the static web server used as an update server. The update client will
@@ -1000,7 +1000,7 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
 
                 <p>For working with native code, you need the NDK:</p>
 
-                <pre>sdkmanager 'ndk;27.2.12479018'</pre>
+                <pre>sdkmanager 'ndk;29.0.14206865'</pre>
 
                 <p>Add the <code>ndk-bundle</code> executables to your <code>PATH</code>:</p>
 
@@ -1019,10 +1019,10 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 copy of it. For example:</p>
 
                 <pre>cd ~/android
-curl -O https://dl.google.com/dl/android/studio/ide-zips/2025.1.2.13/android-studio-2025.1.2.13-linux.tar.gz
-echo '9fb9f7e734ab4fefe3c3e2cc02a6d00194252f1a8fc64c77c529a79d313efebb  android-studio-2025.1.2.13-linux.tar.gz' | sha256sum -c
-tar xvf android-studio-2025.1.2.13-linux.tar.gz
-rm android-studio-2025.1.2.13-linux.tar.gz
+curl -O https://dl.google.com/dl/android/studio/ide-zips/2025.1.4.8/android-studio-2025.1.4.8-linux.tar.gz
+echo 'ce747356d52a36b2e6a4b61df5af7a8c587ce67f8480eb1db5e54bab19ccbdf3  android-studio-2025.1.4.8-linux.tar.gz' | sha256sum -c
+tar xvf android-studio-2025.1.4.8-linux.tar.gz
+rm android-studio-2025.1.4.8-linux.tar.gz
 mv android-studio studio</pre>
 
                 <p>Add the Android Studio executables to your <code>PATH</code>:</p>

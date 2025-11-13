@@ -12,13 +12,14 @@ fi
 
 ./process-static $fd
 
-servers=({0..3}.grapheneos.org)
+. servers.sh
 
-rsync -pcv --chmod=F755 --fsync --preallocate certbot-replicate root@${servers[0]}:/usr/local/bin/
-rsync -pcv --chmod=F644 --fsync --preallocate replicate.conf root@${servers[0]}:/etc/systemd/system/certbot-renew.service.d/
+remote=root@bhs0.grapheneos.org
 
-# use last modified timestamps from 0.grapheneos.org
-rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate root@${servers[0]}:/srv/grapheneos.org/ static-production
+rsync -pcv --chmod=F644 --fsync --preallocate mirrors $remote:/etc/mirrors
+
+# use last modified timestamps from bhs0.grapheneos.org
+rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate $remote:/srv/grapheneos.org/ static-production
 rsync -pcv --chmod=D755,F644 --fsync --preallocate static-production/sitemap.xml{,.gz,.br} static-tmp/
 rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-production
 for f in static-production/**.*(br|gz); do
@@ -51,7 +52,7 @@ for server in ${servers[@]}; do
     ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
     echo "root $target;" > nginx-tmp/root_grapheneos.org.conf
-    rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate nginx-tmp/{nginx.conf,mime.types,root_grapheneos.org.conf,snippets} $remote:/etc/nginx/
+    rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate nginx-tmp/{ffdhe2048.txt,nginx.conf,mime.types,root_grapheneos.org.conf,snippets} $remote:/etc/nginx/
     ssh $remote nginx -s reload
 
     echo

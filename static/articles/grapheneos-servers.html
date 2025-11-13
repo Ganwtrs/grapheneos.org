@@ -45,10 +45,9 @@
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
 
                 <ul>
-                    <li><a href="#grapheneos.org">GrapheneOS website</a></li>
-                    <li><a href="#staging.grapheneos.org">Staging GrapheneOS website</a></li>
+                    <li><a href="#grapheneos.org">GrapheneOS website and network servers</a></li>
+                    <li><a href="#staging.grapheneos.org">Staging GrapheneOS website and network servers</a></li>
                     <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
-                    <li><a href="#grapheneos.network">GrapheneOS network servers</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
                     <li><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></li>
                     <li><a href="#grapheneos.social">GrapheneOS Mastodon server</a></li>
@@ -61,7 +60,13 @@
             </nav>
 
             <section id="grapheneos.org">
-                <h2><a href="#grapheneos.org">GrapheneOS website</a></h2>
+                <h2><a href="#grapheneos.org">GrapheneOS website and network services</a></h2>
+
+                <p>These are the servers servers for our website, HTTP/HTTPS connectivity checks,
+                HTTPS network time, NTP (for Qualcomm XTRA), Broadcom PSDS cache, Samsung PSDS
+                cache, Qualcomm PSDS (XTRA) cache, SUPL proxy, attestation key provisioning proxy,
+                Vanadium component update check/download proxy, network location proxy and geocoding
+                proxy.</p>
 
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/grapheneos.org">Repository</a></li>
@@ -71,7 +76,7 @@
                 <p>Specs:</p>
 
                 <ul>
-                    <li>3x OVH VPS vps2023-le-2</li>
+                    <li>6x OVH VPS vps2023-le-2</li>
                     <li>2 core</li>
                     <li>2 GB memory</li>
                     <li>40 GB NVMe SSD storage</li>
@@ -79,7 +84,7 @@
                 </ul>
 
                 <ul>
-                    <li>1x BuyVM Slice 1024</li>
+                    <li>2x BuyVM Slice 1024</li>
                     <li>1 core</li>
                     <li>1 GB memory</li>
                     <li>20 GB NVMe SSD storage</li>
@@ -111,19 +116,44 @@
                     <li>www.grapheneos.page</li>
                     <li>vanadium.app</li>
                     <li>www.vanadium.app</li>
+                    <li>grapheneos.network - HTTP/HTTPS connectivity checks</li>
+                    <li>connectivitycheck.grapheneos.network - HTTP/HTTPS connectivity checks</li>
+                    <li>www.grapheneos.network</li>
+                    <li>grapheneos.online - HTTP/HTTPS connectivity checks</li>
+                    <li>connectivitycheck.grapheneos.online - HTTP/HTTPS connectivity checks</li>
+                    <li>www.grapheneos.online</li>
+                    <li>broadcom.psds.grapheneos.org - HTTPS Broadcom PSDS data cache</li>
+                    <li>samsung.psds.grapheneos.org - HTTPS Samsung PSDS data cache</li>
+                    <li>qualcomm.psds.grapheneos.org - HTTPS Qualcomm PSDS data cache</li>
+                    <li>remoteprovisioning.grapheneos.org - HTTPS reverse proxy to remoteprovisioning.google.com</li>
+                    <li>widevineprovisioning.grapheneos.org - HTTPS reverse proxy for Widevine provisioning</li>
+                    <li>time.grapheneos.org - HTTPS time server with millisecond precision X-Time header</li>
+                    <li>supl.grapheneos.org - TLS reverse proxy to supl.google.com</li>
+                    <li>nominatim.grapheneos.org - HTTPS reverse proxy to nominatim.openstreetmap.org, which will become our own instance of Nominatim instead of a proxy</li>
+                    <li>gs-loc.apple.grapheneos.org - HTTPS reverse proxy to Apple's network location service, which will remain an option after we have our own location service</li>
+                    <li>update.vanadium.app - HTTPS reverse proxy to update.googleapis.com for Chromium component updates (will be hosted directly in the future)</li>
+                    <li>dl.vanadium.app - HTTPS reverse proxy to CDNs for Chromium component updates (will be hosted directly in the future)</li>
                 </ul>
 
                 <p>IPs:</p>
 
                 <ul>
-                    <li>51.222.156.101 (0.grapheneos.org) — OVH bhs6</li>
-                    <li>2607:5300:205:200::29c6 (0.grapheneos.org) — OVH bhs6</li>
-                    <li>209.141.35.164 (1.grapheneos.org) — BuyVM Las Vegas</li>
-                    <li>2605:6400:20:1131:8088:e08:84e6:632 (1.grapheneos.org) — BuyVM Las Vegas</li>
-                    <li>54.37.41.189 (2.grapheneos.org) — OVH gra8</li>
-                    <li>2001:41d0:304:200::b109 (2.grapheneos.org) — OVH gra8</li>
-                    <li>51.79.160.50 (3.grapheneos.org) — OVH sgp2</li>
-                    <li>2402:1f00:8000:800::16d6 (3.grapheneos.org) — OVH sgp2</li>
+                    <li>51.222.156.101 (bhs0.grapheneos.org) — OVH bhs6</li>
+                    <li>2607:5300:205:200::29c6 (bhs0.grapheneos.org) — OVH bhs6</li>
+                    <li>51.222.159.116 (bhs1.grapheneos.org) — OVH bhs6</li>
+                    <li>2607:5300:205:200::2584 (bhs1.grapheneos.org) — OVH bhs6</li>
+                    <li>54.37.41.189 (gra0.grapheneos.org) — OVH gra8</li>
+                    <li>2001:41d0:304:200::b109 (gra0.grapheneos.org) — OVH gra8</li>
+                    <li>54.37.41.188 (gra1.grapheneos.org) — OVH gra8</li>
+                    <li>2001:41d0:304:200::902f (gra1.grapheneos.org) — OVH gra8</li>
+                    <li>209.141.35.164 (las0.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>2605:6400:20:1131:8088:e08:84e6:632 (las0.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>209.141.37.35 (las1.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>2605:6400:20:387:72d4:dab9:a369:f351 (las1.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>51.79.160.50 (sin0.grapheneos.org) — OVH sgp2</li>
+                    <li>2402:1f00:8000:800::16d6 (sin0.grapheneos.org) — OVH sgp2</li>
+                    <li>51.79.161.36 (sin1.grapheneos.org) — OVH sgp2</li>
+                    <li>2402:1f00:8000:800::1949 (sin1.grapheneos.org) — OVH sgp2</li>
                 </ul>
 
                 <p>Ports:</p>
@@ -131,12 +161,14 @@
                 <ul>
                     <li>TCP 22 ssh</li>
                     <li>TCP 80 http</li>
+                    <li>UDP 123 ntp</li>
                     <li>TCP 443 https</li>
+                    <li>TCP 7275 supl</li>
                 </ul>
             </section>
 
             <section id="staging.grapheneos.org">
-                <h2><a href="#staging.grapheneos.org">Staging GrapheneOS website</a></h2>
+                <h2><a href="#staging.grapheneos.org">Staging GrapheneOS website and network services</a></h2>
 
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/grapheneos.org">Repository</a></li>
@@ -171,7 +203,9 @@
                 <ul>
                     <li>TCP 22 ssh</li>
                     <li>TCP 80 http</li>
+                    <li>UDP 123 ntp</li>
                     <li>TCP 443 https</li>
+                    <li>TCP 7275 supl</li>
                 </ul>
             </section>
 
@@ -188,14 +222,6 @@
                 </ul>
 
                 <p>Specs:</p>
-
-                <ul>
-                    <li>Macarne dedicated server (sponsored by <a href="https://macarne.com/">Macarne</a>)</li>
-                    <li>Ryzen 9950X</li>
-                    <li>128 GB DDR5</li>
-                    <li>2x 2 TB NVMe SSD storage</li>
-                    <li>25000 Mbit/s bandwidth</li>
-                </ul>
 
                 <ul>
                     <li>2x ReliableSite dedicated server (sponsored by <a href="https://www.reliablesite.net/">ReliableSite</a>)</li>
@@ -225,14 +251,11 @@
                 <p>IPs:</p>
 
                 <ul>
-                    <li>185.225.24.20 (0.releases.grapheneos.org) — Macarne Amsterdam</li>
-                    <li>185.225.24.21 (0.releases.grapheneos.org) — Macarne Amsterdam</li>
-                    <li>2a14:3f87:6920:250::100 (0.releases.grapheneos.org) — Macarne Amsterdam</li>
-                    <li>172.96.172.37 (1.releases.grapheneos.org) — ReliableSite Miami</li>
-                    <li>2605:9880:400:1100:15:1240:515:6e (1.releases.grapheneos.org) — ReliableSite Miami</li>
-                    <li>104.194.8.203 (2.releases.grapheneos.org) — ReliableSite Los Angeles</li>
-                    <li>2605:9880:200:20::113 (2.releases.grapheneos.org) — ReliableSite Los Angeles</li>
-                    <li>45.88.230.12 (3.releases.grapheneos.org) — Tempest London</li>
+                    <li>104.194.8.203 (lax.releases.grapheneos.org) — ReliableSite Los Angeles</li>
+                    <li>2605:9880:200:20::113 (lax.releases.grapheneos.org) — ReliableSite Los Angeles</li>
+                    <li>45.88.230.12 (lon.releases.grapheneos.org) — Tempest London</li>
+                    <li>172.96.172.37 (mia.releases.grapheneos.org) — ReliableSite Miami</li>
+                    <li>2605:9880:400:1100:15:1240:515:6e (mia.releases.grapheneos.org) — ReliableSite Miami</li>
                 </ul>
 
                 <p>Ports:</p>
@@ -241,83 +264,6 @@
                     <li>TCP 22 ssh</li>
                     <li>TCP 80 http</li>
                     <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="grapheneos.network">
-                <h2><a href="#grapheneos.network">GrapheneOS network servers</a></h2>
-
-                <p>These are the default servers used by GrapheneOS for connectivity checks,
-                secure network time, attestation key provisioning and Predicted Satellite Data
-                Service (PSDS). These either serve empty responses or provide reverse proxies to
-                other services.</p>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.network">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.network/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>3x OVH VPS vps2023-le-2</li>
-                    <li>2 core</li>
-                    <li>2 GB memory</li>
-                    <li>40 GB NVMe SSD storage</li>
-                    <li>500 Mbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>1x BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GB memory</li>
-                    <li>20 GB NVMe SSD storage</li>
-                    <li>1000 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>grapheneos.network - HTTP/HTTPS connectivity checks</li>
-                    <li>connectivitycheck.grapheneos.network - HTTP/HTTPS connectivity checks</li>
-                    <li>www.grapheneos.network</li>
-                    <li>grapheneos.online - HTTP/HTTPS connectivity checks</li>
-                    <li>connectivitycheck.grapheneos.online - HTTP/HTTPS connectivity checks</li>
-                    <li>www.grapheneos.online</li>
-                    <li>broadcom.psds.grapheneos.org - HTTPS Broadcom PSDS data cache</li>
-                    <li>samsung.psds.grapheneos.org - HTTPS Samsung PSDS data cache</li>
-                    <li>qualcomm.psds.grapheneos.org - HTTPS Qualcomm PSDS data cache</li>
-                    <li>remoteprovisioning.grapheneos.org - HTTPS reverse proxy to remoteprovisioning.google.com</li>
-                    <li>widevineprovisioning.grapheneos.org - HTTPS reverse proxy for Widevine provisioning</li>
-                    <li>time.grapheneos.org - HTTPS time server with millisecond precision X-Time header</li>
-                    <li>supl.grapheneos.org - TLS reverse proxy to supl.google.com</li>
-                    <li>nominatim.grapheneos.org - HTTPS reverse proxy to nominatim.openstreetmap.org, which will become our own instance of Nominatim instead of a proxy</li>
-                    <li>gs-loc.apple.grapheneos.org - HTTPS reverse proxy to Apple's network location service, which will remain an option after we have our own location service</li>
-                    <li>update.vanadium.app - HTTPS reverse proxy to update.googleapis.com for Chromium component updates (will be hosted directly in the future)</li>
-                    <li>dl.vanadium.app - HTTPS reverse proxy to CDNs for Chromium component updates (will be hosted directly in the future)</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>51.222.159.116 (0.grapheneos.network) — OVH bhs6</li>
-                    <li>2607:5300:205:200::2584 (0.grapheneos.network) — OVH bhs6</li>
-                    <li>209.141.37.35 (1.grapheneos.network) — BuyVM Las Vegas</li>
-                    <li>2605:6400:20:387:72d4:dab9:a369:f351 (1.grapheneos.network) — BuyVM Las Vegas</li>
-                    <li>54.37.41.188 (2.grapheneos.network) — OVH gra8</li>
-                    <li>2001:41d0:304:200::902f (2.grapheneos.network) — OVH gra8</li>
-                    <li>51.79.161.36 (3.grapheneos.network) — OVH sgp2</li>
-                    <li>2402:1f00:8000:800::1949 (3.grapheneos.network) — OVH sgp2</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>UDP 123 ntp</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 7275 supl</li>
                 </ul>
             </section>
 
@@ -521,11 +467,10 @@
                 <p>Specs:</p>
 
                 <ul>
-                    <li>4x OVH VPS vps2023-le-2</li>
-                    <li>2 core</li>
-                    <li>2 GB memory</li>
-                    <li>40 GB NVMe SSD storage</li>
-                    <li>500 Mbit/s bandwidth</li>
+                    <li>6x Vultr vhp-1c-1gb-amd</li>
+                    <li>1 core</li>
+                    <li>1 GB memory</li>
+                    <li>25 GB NVMe SSD storage</li>
                 </ul>
 
                 <ul>
@@ -576,20 +521,24 @@
                 <p>IPs:</p>
 
                 <ul>
-                    <li>185.187.152.9 (anycast), 51.161.34.158 (0.ns1.grapheneos.org) — OVH bhs6</li>
-                    <li>2a05:b0c4:1::8 (anycast), 2607:5300:205:200::eaa (0.ns1.grapheneos.org) — OVH bhs6</li>
-                    <li>185.187.152.9 (anycast), 15.204.8.153 (1.ns1.grapheneos.org) — OVH US us-west-or-2</li>
-                    <li>2a05:b0c4:1::8 (anycast), 2604:2dc0:202:300::23a6 (1.ns1.grapheneos.org) — OVH us-west-or-2</li>
-                    <li>185.187.152.9 (anycast) 57.129.65.223 (2.ns1.grapheneos.org) — OVH de2</li>
-                    <li>2a05:b0c4:1::8 (anycast) 2001:41d0:701:1100::245b (2.ns1.grapheneos.org) — OVH de2</li>
-                    <li>185.187.152.9 (anycast) 15.235.197.61 (3.ns1.grapheneos.org) — OVH sgp2</li>
-                    <li>2a05:b0c4:1::8 (anycast) 2402:1f00:8000:800::3966 (3.ns1.grapheneos.org) — OVH sgp2</li>
-                    <li>198.251.90.93 (anycast), 198.98.53.141 (0.ns2.grapheneos.org) — BuyVM New York</li>
-                    <li>2605:6400:10:102e:95bc:89ef:2e7f:49bb (0.ns2.grapheneos.org) — BuyVM New York</li>
-                    <li>198.251.90.93 (anycast), 205.185.124.155 (1.ns2.grapheneos.org) — BuyVM Las Vegas</li>
-                    <li>2605:6400:20:1c8f:a0c9:372d:482e:945b (1.ns2.grapheneos.org) — BuyVM Las Vegas</li>
-                    <li>198.251.90.93 (anycast), 107.189.3.168 (2.ns2.grapheneos.org) — BuyVM Zurich</li>
-                    <li>2605:6400:30:ec25:102c:af6d:5be:1eb8 (2.ns2.grapheneos.org) — BuyVM Zurich</li>
+                    <li>185.187.152.9 (anycast), 80.240.20.200 (fra.ns1.grapheneos.org) — Vultr Frankfurt</li>
+                    <li>2a05:b0c4:1::8 (anycast), 2a05:f480:1800:2acd:5400:05ff:fec2:23a1 (fra.ns1.grapheneos.org) — Vultr Frankfurt</li>
+                    <li>185.187.152.9 (anycast), 140.82.23.46 (lax.ns1.grapheneos.org) — Vultr Los Angeles</li>
+                    <li>2a05:b0c4:1::8 (anycast), 2001:19f0:6000:2dcd:5400:05ff:fec1:97db (lax.ns1.grapheneos.org) — Vultr Los Angeles</li>
+                    <li>185.187.152.9 (anycast), 45.32.173.220 (mia.ns1.grapheneos.org) — Vultr Miami</li>
+                    <li>2a05:b0c4:1::8 (anycast), 2001:19f0:9002:2981:5400:05ff:fec1:65c4 (mia.ns1.grapheneos.org) — Vultr Miami</li>
+                    <li>185.187.152.9 (anycast), 66.135.8.22 (nyc.ns1.grapheneos.org) — Vultr New Jersey</li>
+                    <li>2a05:b0c4:1::8 (anycast), 2001:19f0:1000:c0d4:5400:05ff:fec1:7c21 (nyc.ns1.grapheneos.org) — Vultr New Jersey</li>
+                    <li>185.187.152.9 (anycast), 66.42.74.68 (sea.ns1.grapheneos.org) — Vultr Seattle</li>
+                    <li>2a05:b0c4:1::8 (anycast), 2001:19f0:8001:0438:5400:05ff:fec1:9dbd (sea.ns1.grapheneos.org) — Vultr Seattle</li>
+                    <li>185.187.152.9 (anycast), 139.180.154.140 (sin.ns1.grapheneos.org) — Vultr Singapore</li>
+                    <li>2a05:b0c4:1::8 (anycast), 2401:c080:1400:4890:5400:05ff:fec2:23b0 (sin.ns1.grapheneos.org) — Vultr Singapore</li>
+                    <li>198.251.90.93 (anycast), 107.189.3.168 (brn.ns2.grapheneos.org) — BuyVM Bern</li>
+                    <li>2605:6400:30:ec25:102c:af6d:5be:1eb8 (brn.ns2.grapheneos.org) — BuyVM Bern</li>
+                    <li>198.251.90.93 (anycast), 205.185.124.155 (las.ns2.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>2605:6400:20:1c8f:a0c9:372d:482e:945b (las.ns2.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>198.251.90.93 (anycast), 198.98.53.141 (nyc.ns2.grapheneos.org) — BuyVM New York</li>
+                    <li>2605:6400:10:102e:95bc:89ef:2e7f:49bb (nyc.ns2.grapheneos.org) — BuyVM New York</li>
                 </ul>
 
                 <p>Ports:</p>

@@ -74,6 +74,12 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2025110800">2025110800</a></li>
+                            <li><a href="#2025110600">2025110600</a></li>
+                            <li><a href="#2025102800">2025102800</a></li>
+                            <li><a href="#2025102600">2025102600</a></li>
+                            <li><a href="#2025102300">2025102300</a></li>
+                            <li><a href="#2025102200">2025102200</a></li>
                             <li><a href="#2025100900">2025100900</a></li>
                             <li><a href="#2025100300">2025100300</a></li>
                             <li><a href="#2025092700">2025092700</a></li>
@@ -613,12 +619,189 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2025100900">
-                    <h3><a href="#2025100900">2025100900</a></h3>
+                <article id="2025110800">
+                    <h3><a href="#2025110800">2025110800</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025100900">2025100900</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025110800">2025110800</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025110800 release:</p>
+
+                    <ul>
+                        <li>raise declared patch level to 2025-11-05 which has already been provided in GrapheneOS since our regular <a href="#2025090200">2025090200</a> release (not a security preview) since the patches were included in the September security preview and were then pushed to AOSP despite not being listed in the bulletin along with there being no Pixel Update Bulletin patches for November 2025</li>
+                        <li>adevtool: switch to obtaining Android 16 QPR1 backports from the latest November releases for relevant Pixels (there are no security patches listed for the Android or Pixel bulletins and not all Pixels received the tiny release)</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/142.0.7444.158.0">version 142.0.7444.158.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current December 2025, January 2026, February 2026 and March 2026 Android Security Bulletins are included in the 2025110801 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2025-48631, CVE-2026-0006</li>
+                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
+                    </ul>
+
+                    <p>2025110801 provides at least the full 2025-12-01 Android security patch level (a Pixel Update Bulletin for November 2025 hasn't been released could have fixes we don't get early, although it's likely empty) but will remain marked as providing 2025-11-01.</p>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+                -->
+
+                <article id="2025110800">
+                    <h3><a href="#2025110800">2025110800</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025110800">2025110800</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025110600 release:</p>
+
+                    <ul>
+                        <li>adevtool: fully automate handling SoC and radio firmware image backports, which resolves an issue with a version string mismatch in the previous release for the initial installation process which resulted in us cancelling the Stable channel release</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/142.0.7444.138.1">version 142.0.7444.138.1</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current December 2025, January 2026, February 2026 and March 2026 Android Security Bulletins are included in the 2025110801 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2025-48631, CVE-2026-0006</li>
+                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
+                    </ul>
+
+                    <p>2025110801 provides at least the full 2025-12-01 Android security patch level (a Pixel Update Bulletin for November 2025 hasn't been released could have fixes we don't get early, although it's likely empty) but will remain marked as providing 2025-11-01.</p>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025110600">
+                    <h3><a href="#2025110600">2025110600</a></h3>
+
+                    <p>Both of the November 2025 patches have been provided in our regular non-security-preview releases for over a month, so we've already had the 2025-11-05 Android security patch level for over a month. Our patch level is set based on providing both the Android and Pixel security patches, so we're leaving it at 2025-11-01 until the Pixel stock OS release and Pixel Update Bulletin are published. The stock Pixel OS also included both November 2025 patches in early September. We expect they made a 2nd October release to ship the November carrier changes and will make a release in mid-November with patches from future Android Security Bulletins.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025110600">2025110600</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025102800 release:</p>
+
+                    <ul>
+                        <li>raise declared patch level to 2025-11-01 which has already been provided in GrapheneOS since our regular <a href="#2025090200">2025090200</a> release (not a security preview) since the patches were included in the September security preview and were then pushed to AOSP despite not being listed in the bulletin</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.1): keep POSIX_MQUEUE disabled to avoid increasing attack surface</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.114</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision</li>
+                        <li>adevtool: switch to obtaining Android 16 QPR1 backports from the latest November releases for relevant Pixels (there are no security patches listed for the Android or Pixel bulletins and not all Pixels received the tiny release)</li>
+                        <li>Settings: add 1 second delay for approving device admin activation to mitigate tapjacking (this matches the 1 second delay we add to both permission prompts and ADB authorization prompts which is currently not configurable)</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/142.0.7444.138.0">version 142.0.7444.138.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current December 2025, January 2026, February 2026 and March 2026 Android Security Bulletins are included in the 2025110601 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2025-48631, CVE-2026-0006</li>
+                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
+                    </ul>
+
+                    <p>2025110601 provides at least the full 2025-12-01 Android security patch level (a Pixel Update Bulletin for November 2025 hasn't been released could have fixes we don't get early, although it's likely empty) but will remain marked as providing 2025-11-01.</p>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025102800">
+                    <h3><a href="#2025102800">2025102800</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025102800">2025102800</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025102600 release:</p>
+
+                    <ul>
+                        <li>Sandboxed Google Play compatibility layer: temporarily limit system service override infrastructure added for GmsFontProvider shim to Pixel Camera to work around certain banking apps detecting it as tampering (we can change the approach to avoid this to enable it for all apps using the Google Play client libraries again, especially since we want to expand it to improve app compatibility without Play services installed)</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.112</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.53</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current November 2025, December 2025 and January 2026 Android Security Bulletins are included in the 2025102801 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2025-48593, CVE-2025-48631</li>
+                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
+                    </ul>
+
+                    <p>2025102801 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025102600">
+                    <h3><a href="#2025102600">2025102600</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025102600">2025102600</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025102300 release:</p>
+
+                    <ul>
+                        <li>Sandboxed Google Play compatibility layer: add shim implementation of GmsFontProvider to prevent crashes of apps depending on Play services when it's missing or disabled (restores support for using Pixel Camera without Play services)</li>
+                        <li>Sandboxed Google Play compatibility layer: extend shim for background service starts to address edge cases where a foreground service is required</li>
+                        <li>Sandboxed Google Play compatibility layer: fix NoOpPrewarmService chain crash in Pixel Camera caused by lack of privileged OS integration</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/142.0.7444.48.0">version 142.0.7444.48.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current November 2025, December 2025 and January 2026 Android Security Bulletins are included in the 2025102601 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2025-48593, CVE-2025-48631</li>
+                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
+                    </ul>
+
+                    <p>2025102601 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025102300">
+                    <h3><a href="#2025102300">2025102300</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025102300">2025102300</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025102200 release:</p>
+
+                    <ul>
+                        <li>fix signing the GmsCompatLib package with a dedicated cross-device key, which was added in the last release but wasn't being replaced by a release key and blocked moving the last release past Alpha</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current November 2025, December 2025 and January 2026 Android Security Bulletins are included in the 2025102301 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2025-48593, CVE-2025-48631</li>
+                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
+                    </ul>
+
+                    <p>2025102301 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025102200">
+                    <h3><a href="#2025102200">2025102200</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025102200">2025102200</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2025100900 release:</p>
@@ -628,23 +811,26 @@
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.111</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.52</li>
                         <li>System Updater: prevent reboot and security preview notifications from timing out after 3 days which is standard behavior since Android 15 QPR1</li>
-                        <li>System Updater: mark notification permission as fixed to prevent disabling overall notifications, but enable blocking progress, failure and already up to date notification channels</li>
+                        <li>System Updater: mark notification permission as fixed to prevent disabling overall notifications but exclude the channels for progress, errors and already up to date notifications from it so that only reboot and security preview notifications are mandatory</li>
+                        <li>Sandboxed Google Play compatibility layer: add support for overriding BinderProxy transactions</li>
+                        <li>Sandboxed Google Play compatibility layer: add support for out-of-band updates to GmsCompatLib</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/141.0.7390.111.0">version 141.0.7390.111.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/141.0.7390.122.0">version 141.0.7390.122.0</a></li>
                         <li>raise emulator super / dynamic partition size due to reaching the limit in some cases</li>
+                        <li>adevtool: prefer prebuilt AOSP JDK 21</li>
                     </ul>
 
-                    <p>All of the Android 16 security patches from the current November 2025, December 2025 and January 2026 Android Security Bulletins are included in the 2025100901 security preview release. List of additional fixed CVEs:</p>
+                    <p>All of the Android 16 security patches from the current November 2025, December 2025 and January 2026 Android Security Bulletins are included in the 2025102201 security preview release. List of additional fixed CVEs:</p>
 
                     <ul>
                         <li>Critical: CVE-2025-48593, CVE-2025-48631</li>
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
                     </ul>
 
-                    <p>2025100901 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
+                    <p>2025102201 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
-                -->
 
                 <article id="2025100900">
                     <h3><a href="#2025100900">2025100900</a></h3>

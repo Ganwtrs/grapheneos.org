@@ -110,48 +110,126 @@
             </nav>
 
                 <section id="setup-considerations">
-                    <h3><a href="#setup-considerations">Setup considerations</a></h2>
+                    <h2><a href="#setup-considerations">Setup considerations</a></h2>
 
                     <p>Here are some setting considerations that pertain to privacy and security on
                     GrapheneOS.</p>
 
-                    <p>Notification quick menu:</p>
-                        <ul>
+                        <section id="settings-considerations">
+                            <h3><a href="#settings-considerations">Settings</a></h3>
                             
-                        </ul>
-
-                    <section id="settings-considerations">
-                        <h3><a href="#settings-considerations">Settings: </a></h3>
-                <ul>
-                    <li>Network & internet</li>
-                        <ul>
-                            <li><strong>Airplane mode:</strong> disabled when not in use (can also be disabled in
-                                        notification quick settings)</li>
-                            <li>Internet</li>
+                            <li>Network & internet
                                 <ul>
-                                    <li><strong>Wi-Fi:</strong> disabled when not in use (can also be disabled in
-                                        notification quick settings</li>
-                                    <li>Network preferences</li>
+                                    <li><strong>Airplane mode:</strong> enabled when cellular data not in use (can also be disabled in
+                                                notification quick settings)</li>
+                                    <li>Internet
                                         <ul>
-                                            <li><strong>Turn on Wi-Fi automatically:</strong> disabled</li>
-                                            <li><strong>Notify for public networks:</strong> disabled</li>
-                                            <li><strong>Allow WEP networks:</strong> disabled</li>
+                                            <li><strong>Wi-Fi:</strong> disabled when not in use (can also be disabled in
+                                                notification quick settings</li>
+                                            <li>Network preferences
+                                                <ul>
+                                                    <li><strong>Turn on Wi-Fi automatically:</strong> disabled</li>
+                                                    <li><strong>Notify for public networks:</strong> disabled</li>
+                                                    <li><strong>Allow WEP networks:</strong> disabled</li>
+                                                </ul>
+                                            </li>
                                         </ul>
+                                    </li>
                                 </ul>
-                        </ul>
-                    <li>SIMs</li>
-                        <ul>
-                            <li>[Each SIM]</li>
+                            </li>
+                            <li>SIMs
                                 <ul>
-                                    <li>Preferred network type: <a href="#lte-only-mode">LTE only</a></li>
-                                    <li>Wi-Fi calling</li>
+                                    <li>[Each SIM]
                                         <ul>
-                                            Use Wi-Fi calling: disabled
+                                            <li><strong>Preferred network type:</strong> <a href="#lte-only-mode">LTE only</a></li>
+                                            <li>Wi-Fi calling
+                                                <ul>
+                                                    <strong>Use Wi-Fi calling:</strong> disabled
+                                                </ul>
+                                            </li>
+                                            <li><strong>2G network protection:</strong> enabled</li>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>System update
+                                <ul>
+                                    <li><strong>Receive security preview releases:</strong> enabled</li>
+                                </ul>
+                            </li>
+                            <li>Security and privacy
+                                <ul>
+                                    <li>Exploit protection
+                                        <ul>
+                                            <li><strong>Auto reboot:</strong> <a href="/features#auto-reboot">adjust based on needs</a></li>
+                                            <li><strong>USB-C port:</strong> <a href="/features#usb-c-port-and-pogo-pins-control">Charging-only when locked, or Charging only</a></li>
+                                            <li><strong>Turn off Wi-Fi automatically:</strong> 5 minutes</li>
+                                            <li><strong>Turn off Bluetooth automatically:</strong> 5 minutes</li>
+                                            <li><strong>Turn off NFC automatically:</strong> 5 minutes</li>
+                                            <li>Memory tagging (on 8th generation pixels and above)
+                                                <ul>
+                                                    <li><strong>Enable by default:</strong> enabled</li>
+                                                </ul>
+                                            </li>
+                                            <li>Native code debugging
+                                                <ul>
+                                                    <li><strong>Block for third-party apps by default:</strong> enabled</li>
+                                                </ul>
+                                            </li>
+                                            <li>WebView JIT
+                                                <ul>
+                                                    <li><strong>Disable for third-party apps by default:</strong> enabled</li>
+                                                </ul>
+                                            </li>
+                                            <li>Dynamic code loading via memory
+                                                <ul>
+                                                    <li><strong>Restrict for third-party apps by default:</strong> enabled</li>
+                                                </ul>
+                                            </li>
+                                            <li>Dynamic code loading via storage
+                                                <ul>
+                                                    <li><strong>Restrict for third-party apps by default:</strong> enabled</li>
+                                                </ul>
+                                            </li>
+                                            <li>Secure app spawning
+                                                <ul>
+                                                    <li><strong>Use secure app spawning:</strong> enabled</li>
+                                                </ul>
+                                            </li>
                                         </ul>
-                                    <li>2G network protection: enabled</li>
-                        </ul>
-                </ul>
+                                    </li>
+                                    <li>More security and privacy
+                                        <ul>
+                                            <li><strong>Allow Sensors permission to apps by default:</strong> disabled
+                                                <ul>
+                                                    <li>note: this only applies to apps installed after it is set</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>Notify about system process crashes:</strong> disabled
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Location
+                                <ul>
+                                    <li><strong>Secure User Plane Location (SUPL):</strong> Off</li>
+                                </ul>
+                            </li>
+                    </section>
+
+                <section id="vanadium-considerations">
+                    <h3><a href="#vanadium-considerations">Vanadium</a></h3>
                     
+                    <li>Settings
+                        <ul>
+                            <li>Privacy and security
+                                <ul>
+                                    <li><strong>Improve search suggestions:</strong> disabled</li>
+                                    <li><strong>Open external links in Incognito:</strong> enabled</li>
+                                    <li><strong>Lock Incognito tabs when you leave Vanadium:</strong> enabled</li>
+                                </ul>
+                            </li>  
+                        </ul>
+                    </li>
                 </section>
             
             <section id="system-navigation">

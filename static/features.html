@@ -64,8 +64,8 @@
             <p>This page provides an overview of currently implemented features differentiating
             GrapheneOS from AOSP. It doesn't document our many historical features that are no
             longer included for one reason or another. Many of our features were implemented in
-            AOSP, Linux, <a href="https://llvm.org/">LLVM</a> and other projects GrapheneOS is
-            based on and those aren't listed here. In many cases, we've been involved in getting
+            AOSP, Linux, <a href="https://llvm.org/">LLVM</a>, as well as other projects GrapheneOS is
+            based on which aren't listed here. In many cases, we've been involved in getting
             those features implemented in core infrastructure projects.</p>
 
             <nav id="table-of-contents">
@@ -157,8 +157,8 @@
                 baseline features. This section doesn't list features like the standard app
                 sandbox, verified boot, exploit mitigations (ASLR, SSP, Shadow Call Stack, Control
                 Flow Integrity, etc.), permission system (foreground-only and one-time permission
-                grants, scoped file access control, etc.) and so on but rather only our
-                improvements to modern Android. We plan on providing a separate page listing the
+                grants, scoped file access control, etc.), and so on. Rather, only our improvements 
+                to modern Android are listed. We plan on providing a separate page listing the
                 improvements we've contributed to Android since those features aren't listed here
                 despite being a substantial portion of our overall historical work.</p>
 
@@ -197,12 +197,12 @@
                     meaningfully harder to develop. The vast majority of vulnerabilities are well
                     understood classes of bugs and exploitation can be prevented by avoiding the
                     bugs via languages/tooling or preventing exploitation with strong exploit
-                    mitigations. In many cases, vulnerability classes can be completely wiped out
-                    while in many others they can at least be made meaningfully harder to exploit.
+                    mitigations. In many cases, vulnerability classes can be completely wiped out.
+                    In many others, they can at least be made meaningfully harder to exploit.
                     Android does a lot of work in this area, and GrapheneOS has helped to advance
                     this in Android and the Linux kernel. It takes an enormous amount of resources
-                    to develop fundamental fixes for these problems and there's often a high
-                    performance, memory or compatibility cost to deploying them. Mainstream
+                    to develop fundamental fixes for these problems, and there's often a high
+                    performance, memory, or compatibility cost to deploying them. Mainstream
                     operating systems usually don't prioritize security over other areas.
                     GrapheneOS is willing to go further, thus we offer toggles for users to choose
                     the compromises they prefer instead of forcing it on them. In the meantime,
@@ -213,7 +213,7 @@
                     analysis tooling and many kinds of mitigations.</p>
 
                     <p>The final line of defense is containment through sandboxing at various
-                    levels: fine-grained sandboxes around a specific context like per site browser
+                    levels: fine-grained sandboxes around a specific context like per-site browser
                     renderers, sandboxes around a specific component like Android's media codec
                     sandbox and app/workspace sandboxes like the Android app sandbox used to
                     sandbox each app which is also the basis for user/work profiles. GrapheneOS
@@ -221,7 +221,7 @@
                     OS components along with improving the sandboxing policies.</p>
 
                     <p>Preventing an attacker from persisting their control of a component or the
-                    OS/firmware through verified boot and avoiding trust in persistent state
+                    OS/firmware through verified boot, and avoiding trust in persistent state,
                     also helps to mitigate the damage after a compromise has occurred.</p>
 
                     <p>Remote code execution vulnerabilities are the most serious and allow an
@@ -237,10 +237,10 @@
                     memory corruption bugs caused by memory unsafe languages or rare low-level
                     unsafe code in an otherwise memory safe language. Most of the remaining issues
                     are caused by dynamic code execution/loading features. Our main focus is on
-                    preventing or raising the difficulty of exploiting memory corruption bugs
-                    followed by restricting dynamic code execution both to make escalation from a
-                    memory corruption bug harder and to directly mitigate bugs caused by dynamic
-                    code loading/generation/execution such as a JIT compiler bug or a plugin
+                    preventing or raising the difficulty of exploiting memory corruption bugs,
+                    followed by restricting dynamic code execution. This is both to make escalation 
+                    from a memory corruption bug harder, and to directly mitigate bugs caused by 
+                    dynamic code loading/generation/execution such as a JIT compiler bug or a plugin
                     loading vulnerability.</p>
 
                     <section id="attack-surface-reduction">
@@ -248,10 +248,10 @@
 
                         <ul>
                             <li>Greatly reduced remote, local and proximity-based attack surface by
-                            stripping out unnecessary code, making more features optional and
-                            disabling optional features by default (NFC, Bluetooth, UWB, etc.), when
-                            the screen is locked (USB, USB-C, pogo pins, camera access) and optionally
-                            after a timeout (Bluetooth, Wi-Fi).</li>
+                            stripping out unnecessary code, making more features optional, and
+                            disabling optional features by default (NFC, Bluetooth, UWB, etc.). This can
+                            be when the screen is locked (USB, USB-C, pogo pins, camera access), and 
+                            it can optionally be after a timeout (Bluetooth, Wi-Fi).</li>
                             <li>Native debugging (ptrace) access is blocked for all bundled apps to
                             reduce local attack surface. ptrace access is allowed by default for user
                             installed apps for compatibility, with an option to block it by default. In
@@ -282,7 +282,7 @@
                         any new USB connections immediately through either USB-C and pogo pins at
                         both the hardware level via configuring the USB controller and also at the
                         OS level in the kernel to provide a second layer of defense. It disables the
-                        data lines at a hardware level as soon as the existing connections end which
+                        data lines at a hardware level as soon as the existing connections end, which
                         happens right away if there were no USB connections. It also disables USB-C
                         alternate modes including DisplayPort at both the OS and hardware level.</p>
 
@@ -296,13 +296,13 @@
                         connections and disable USB only once the existing connections end. Other
                         operating systems trying to implement a similar feature via the standard
                         toggle end up continuing to allow new USB connections in the OS until all
-                        connections end instead of the two-phase approach we use for our two
+                        connections end, instead of applying the two-phase approach we use for our two
                         Charging-only when locked modes.</p>
 
                         <p>The highest security <b>Off</b> mode disables charging in addition to
                         data to remove the remaining attack surface from the USB controller and OS
                         supporting charging including the USB-PD protocol. There's no risk of the
-                        device not being able to be charged since the overall feature doesn't apply
+                        device not being able to be charged. The overall feature doesn't apply
                         while the device is powered off, booted into the firmware-based fastboot
                         mode or the charging, recovery and fastbootd modes.</p>
                     </section>
@@ -330,7 +330,7 @@
                                 adopted by other security-focused operating systems like secureblue. Our
                                 allocator also heavily influenced the design of the <a
                                 href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
-                                musl malloc implementation</a> which offers substantially better security than
+                                musl malloc implementation</a>, which offers substantially better security than
                                 musl's previous malloc while still having minimal memory usage and code size.
                                 <ul>
                                     <li>Fully out-of-line metadata with protection from corruption, ruling
@@ -390,7 +390,7 @@
                                     the low-level kernel page allocator and higher level kernel
                                     heap allocator (slub). This substantially reduces the lifetime
                                     of sensitive data in memory, mitigates use-after-free
-                                    vulnerabilities and makes most uninitialized data usage
+                                    vulnerabilities, and makes most uninitialized data usage
                                     vulnerabilities harmless. Without our changes, memory that's
                                     released retains data indefinitely until the memory is handed
                                     out for other uses and gets partially or fully overwritten by
@@ -441,7 +441,7 @@
                             Vanadium JIT compiler being permitted. Vanadium has JIT compilation
                             disabled by default for every site and for apps using the WebView with
                             the exception of our PDF Viewer app. Vanadium disables the JIT compiler
-                            by default with a per-site and per-app toggle for it and per-process
+                            by default, with a per-site and per-app toggle for it, and per-process
                             enforcement of blocking dynamic code loading implemented with
                             seccomp-bpf based on the per-site/per-app JIT compiler toggle.</li>
                             <li>Dynamic code loading for both native code or Java/Kotlin classes can
@@ -449,9 +449,9 @@
                             Dynamic code loading from memory, Dynamic code loading from storage and
                             WebView JIT. This can also be used to opt-out of the WebView JIT for our
                             PDF Viewer and dynamic code loading from memory for the Vanadium browser
-                            to disable support for the per-site opt-in to JIT compilation. In order
-                            to make the dynamic code loading toggles more usable, we show a user
-                            facing notification when an app has dynamic code loading from memory or
+                            to disable support for the per-site opt-in to JIT compilation. To make 
+                            the dynamic code loading toggles more usable, we show a user-facing 
+                            notification when an app has dynamic code loading from memory or
                             storage blocked, including a file path being shown when it's blocked
                             from storage. This allows users to disable it for all their apps and
                             then enable them for the ones requiring it.</li>
@@ -463,7 +463,7 @@
                         <h4><a href="#improved-sandboxing">Improved sandboxing</a></h4>
 
                         <p>GrapheneOS improves the app sandbox through hardening SELinux policy
-                        and seccomp-bpf policy along with all the hardening to components like
+                        and seccomp-bpf policy, along with all the hardening to components like
                         kernel implementing the app sandbox and providing a path for the attacker
                         to escape it if they can exploit those components. We primarily focus on
                         the app sandbox, but we also improve the other sandboxes including making
@@ -521,7 +521,7 @@
                     2022-12-02 with a small number of additional patches backported. This means
                     GrapheneOS provides hundreds of relevant kernel patches including many
                     security patches not yet included in the stock OS. It's possible for us to
-                    stay several months ahead due to their approach of moving to new LTS releases
+                    stay several months ahead, due to their approach of moving to new LTS releases
                     only in quarterly releases after a long freeze and testing process.</p>
 
                     <p>We often find new vulnerabilities ourselves and report them upstream. We've
@@ -532,7 +532,7 @@
                     devices.</p>
 
                     <p>Our overall approach is to focus on systemic privacy and security
-                    improvements but fixing individual vulnerabilities is still very
+                    improvements, but fixing individual vulnerabilities is still very
                     important.</p>
                 </section>
 
@@ -541,7 +541,7 @@
 
                     <p>GrapheneOS has a compatibility layer providing the option to install and use
                     the official releases of Google Play in the standard app sandbox. Google Play
-                    receives absolutely no special access or privileges on GrapheneOS as opposed to
+                    receives absolutely no special access or privileges on GrapheneOS, as opposed to
                     bypassing the app sandbox and receiving a massive amount of highly privileged
                     access. Instead, the compatibility layer teaches it how to work within the full
                     app sandbox. It also isn't used as a backend for the OS services as it would be
@@ -558,23 +558,23 @@
 
                     <p>Sandboxed Google Play is close to being fully functional and provides near
                     complete compatibility with the app ecosystem depending on Google Play. Only a
-                    small subset of privileged functionality which we haven't yet ported to
-                    different approaches with our compatibility layer is unavailable. Some
+                    small subset of privileged functionality, which we haven't yet ported to
+                    different approaches with our compatibility layer, is unavailable. Some
                     functionality is inherently privileged and can't be provided as part of the
                     compatibility layer.</p>
 
-                    <p>The vast majority of Play services functionality works perfectly including
-                    dynamically downloaded/updated modules (dynamite modules) and functionality
+                    <p>The vast majority of Play services functionality works perfectly, including
+                    dynamically downloaded/updated modules (dynamite modules), and functionality
                     provided by modular app components such as Google Play Games. By default,
                     location requests are rerouted to a reimplementation of the Play geolocation
                     service provided by GrapheneOS. You can disable rerouting and use the standard
-                    Play services geolocation service instead if you want the Google network
+                    Play services geolocation service instead, if you want the Google network
                     location service and related features.</p>
 
                     <p>Our compatibility layer includes full support for the Play Store. Play
-                    Store services are fully available including in-app purchases, Play Asset
+                    Store services are fully available: including in-app purchases, Play Asset
                     Delivery, Play Feature Delivery and app/content license checks. It can
-                    install, update and uninstall apps with the standard approach requiring that
+                    install, update, and uninstall apps, with the standard approach requiring that
                     the user authorizes it as an app source and consents to each action. It will
                     use the standard Android 12+ unattended update feature to do automatic updates
                     for apps where it was the last installer.</p>
@@ -606,7 +606,7 @@
                     preventing apps from using it to communicate between profiles. Unlike a
                     firewall-based implementation, the Network permission toggle prevents apps
                     from using the network via APIs provided by the OS or other apps in the same
-                    profile as long as they're marked appropriately.</p>
+                    profile, as long as they're marked appropriately.</p>
 
                     <p>The standard INTERNET permission used as the basis for the Network
                     permission toggle is enhanced with a second layer of enforcement and proper
@@ -614,12 +614,12 @@
 
                     <p>To avoid breaking compatibility with Android apps, the added permission
                     toggle is enabled by default. However, the OS app installation UI has been
-                    extended to show the toggle as part of the installation confirmation page so
+                    extended to show the toggle as part of the installation confirmation page, so
                     users can disable it when installing an app.</p>
 
                     <p>When the Network permission is disabled, GrapheneOS pretends the network is
                     down. It shows the network as down in various APIs, returns errors showing a
-                    network connectivity issue rather than a revoked permission and avoids running
+                    network connectivity issue rather than a revoked permission, and avoids running
                     scheduled jobs depending on the network. This results in apps handling it as
                     if the network is down rather than crashing or showing errors from trying to
                     use the network and being unable to do it.</p>
@@ -631,7 +631,7 @@
                     <p>Sensors permission toggle: disallow access to all other sensors not covered
                     by existing Android permissions (Camera, Microphone, Body Sensors, Activity
                     Recognition) including an accelerometer, gyroscope, compass, barometer,
-                    thermometer and any other sensors present on a given device. When access is
+                    thermometer, and any other sensors present on a given device. When access is
                     disabled, apps receive zeroed data when they check for sensor values and don't
                     receive events. GrapheneOS creates an easy-to-disable notification when apps
                     try to access sensors blocked by the permission being denied. This makes the

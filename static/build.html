@@ -297,18 +297,16 @@ source ~/.bashrc</pre>
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>16</code> branch is the main development branch of GrapheneOS
-                        based on the latest release of Android 16. It will follow along with the
-                        latest monthly and quarterly releases of Android 16. The <code>16</code>
-                        branch of GrapheneOS should be used for generic builds including the
-                        emulator, porting to other devices and for non-legacy officially supported
-                        devices.</p>
+                        <p>The <code>16-qpr2</code> branch is the main development branch of
+                        GrapheneOS based on Android 16 QPR2. The <code>16-qpr2</code> branch of
+                        GrapheneOS should be used for generic builds including the emulator, porting
+                        to other devices and for non-legacy officially supported devices.</p>
 
-                        <p>To sync the <code>16</code> branch:</p>
+                        <p>To sync the <code>16-qpr2</code> branch:</p>
 
-                        <pre>mkdir grapheneos-16
-cd grapheneos-16
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 16
+                        <pre>mkdir grapheneos-16-qpr2
+cd grapheneos-16-qpr2
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 16-qpr2
 repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -703,7 +701,7 @@ cd ../..</pre>
 
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16-qpr2
 repo sync -j8</pre>
 
                         <p>To build the 6.6 kernel image and modules for the emulator:</p>
@@ -718,7 +716,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/6.1
 cd android/kernel/6.1
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 16
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 16-qpr2
 repo sync -j8</pre>
 
                         <p>To build the 6.1 kernel image and modules for the emulator:</p>
@@ -737,7 +735,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16-qpr2
 repo sync -j8</pre>
 
                         <p>To build the arm64 kernel image for microdroid:</p>
@@ -762,7 +760,7 @@ repo sync -j8</pre>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel.git -b 16-qpr1 --recurse-submodules
+                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel.git -b 16-qpr2 --recurse-submodules
 cd kernel_pixel</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
@@ -1019,10 +1017,10 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 copy of it. For example:</p>
 
                 <pre>cd ~/android
-curl -O https://dl.google.com/dl/android/studio/ide-zips/2025.1.4.8/android-studio-2025.1.4.8-linux.tar.gz
-echo 'ce747356d52a36b2e6a4b61df5af7a8c587ce67f8480eb1db5e54bab19ccbdf3  android-studio-2025.1.4.8-linux.tar.gz' | sha256sum -c
-tar xvf android-studio-2025.1.4.8-linux.tar.gz
-rm android-studio-2025.1.4.8-linux.tar.gz
+curl -O https://dl.google.com/dl/android/studio/ide-zips/2025.2.1.8/android-studio-2025.2.1.8-linux.tar.gz
+echo '7aa6a2e46eb4387def1f4ea22b8b4a2b68021efa85065347c41187439fd25096  android-studio-2025.2.1.8-linux.tar.gz' | sha256sum -c
+tar xvf android-studio-2025.2.1.8-linux.tar.gz
+rm android-studio-2025.2.1.8-linux.tar.gz
 mv android-studio studio</pre>
 
                 <p>Add the Android Studio executables to your <code>PATH</code>:</p>
